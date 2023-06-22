@@ -46,6 +46,7 @@ if WinActive("ahk_group saveReload") {
 SetCapsLockState "AlwaysOff"
 
 if WinActive("ahk_exe javaw.exe") or WinActive("ahk_exe ApplicationFrameHost.exe") {
+    ; Autoclicker for Minecraft Bedrock and Minecraft Java 1.8.9 
     CapsLock & LButton:: {
         static toggle := 0
         toggle := !toggle
