@@ -50,6 +50,7 @@ if WinActive("ahk_exe javaw.exe") or WinActive("ahk_exe ApplicationFrameHost.exe
         static toggle := 0
         toggle := !toggle
         if (toggle) {
+            ; Adjust number in milliseconds
             SetTimer(Click, 1)
         } else {
             SetTimer(Click, 0)
