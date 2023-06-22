@@ -1,6 +1,6 @@
 # minecraft-ahk-v2-script
 
-This is a Minecraft AutoHotkey (AHK) script that includes several useful features to automate the game.
+This is a Minecraft AutoHotkey (AHK) script that includes several useful features to automate both the Bedrock and Java clients.
 
 ## Features
 
