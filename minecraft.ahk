@@ -47,10 +47,15 @@ SetCapsLockState "AlwaysOff"
 
 if WinActive("ahk_exe javaw.exe") or WinActive("ahk_exe ApplicationFrameHost.exe") {
     CapsLock & LButton:: {
-        static toggle := false
+        static toggle := 0
         toggle := !toggle
-        SetTimer(Click, toggle ? 1 : 0)
+        if (toggle) {
+            SetTimer(Click, 1)
+        } else {
+            SetTimer(Click, 0)
+        }
     }
+    
 }
 
 ;============================== ini Section ==============================
