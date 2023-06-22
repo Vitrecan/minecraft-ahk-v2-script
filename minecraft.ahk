@@ -42,9 +42,16 @@ if WinActive("ahk_group saveReload") {
 ;============================== Program 1 ==============================
 ; Evertything between here and the next #IfWinActive will ONLY work in someProgram.exe
 ; This is called being "context sensitive"
-; if WinActive("ahk_exe someProgram.exe") {
 
-;}
+SetCapsLockState "AlwaysOff"
+
+if WinActive("ahk_exe javaw.exe") or WinActive("ahk_exe ApplicationFrameHost.exe") {
+    CapsLock & LButton:: {
+        static toggle := false
+        toggle := !toggle
+        SetTimer(Click, toggle ? 1 : 0)
+    }
+}
 
 ;============================== ini Section ==============================
 ; Do not remove /* or */ from this section. Only modify if you're
