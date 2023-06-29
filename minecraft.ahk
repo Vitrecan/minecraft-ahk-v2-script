@@ -52,12 +52,30 @@ if WinActive("ahk_exe javaw.exe") or WinActive("ahk_exe ApplicationFrameHost.exe
         toggle := !toggle
         if (toggle) {
             ; Adjust number in milliseconds
-            SetTimer(Click, 1)
+            SetTimer Click, 1
         } else {
-            SetTimer(Click, 0)
+            SetTimer Click, 0
         }
     }
     
+    ; Shift-Tap
+    +CapsLock:: {
+        static toggle := 0
+        toggle := !toggle
+        if (toggle) {
+            ; Adjust number in milliseconds
+            SetTimer shiftClick, 1
+        } else {
+            SetTimer shiftClick, 0
+        }
+    }
+
+    shiftClick() {
+        Click
+        Send "{Shift down}"
+        Send "{Shift Up}"
+        return
+    }
 }
 
 ;============================== ini Section ==============================
