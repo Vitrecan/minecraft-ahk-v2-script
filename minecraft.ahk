@@ -35,7 +35,7 @@ if WinActive("ahk_group saveReload") {
 
 SetCapsLockState "AlwaysOff"
 
-if WinActive("javaw") or WinActive("ApplicationFrameHost") {
+#HotIf WinActive("javaw") or WinActive("ApplicationFrameHost") {
     ; Autoclicker for Minecraft Bedrock and Minecraft Java 1.8.9 
     CapsLock & LButton:: {
         autoclick(Click)
@@ -61,6 +61,24 @@ if WinActive("javaw") or WinActive("ApplicationFrameHost") {
         Click
         Send "{Shift down}"
         Send "{Shift Up}"
+        return
+    }
+
+    rButtonClick() {
+        Click
+        Send "{RButton}"
+        return
+    }
+    
+    wClick() {
+        Click
+        Send "{w}"
+        return
+    }
+    
+    sClick() {
+        Click
+        Send "{s}"
         return
     }
 }
