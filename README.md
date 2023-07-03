@@ -4,7 +4,8 @@ This is a Minecraft AutoHotkey (AHK) script that includes several useful feature
 
 ## Features
 
-- **Autoclicker**: Quickly attack your opponents with customisable click rates.
+- **Autoclicker**: Caps Lock + Left Click to quickly attack your opponents with customisable click rates.
+- **Shift-Tapping**: Caps Lock + Shift to to alternate between shifting and attacking your opponents.
 
 ## Usage
 
