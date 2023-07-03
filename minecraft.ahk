@@ -8,16 +8,6 @@ if !A_IsAdmin {
 ; Keeps script permanently running
 Persistent
 
-; Ensures that there is only a single instance of this script running.
-#SingleInstance Force
-
-; Makes a script unconditionally use its own folder as its working directory.
-; Ensures a consistent starting directory.
-SetWorkingDir A_ScriptDir
-
-; sets title matching to search for "containing" instead of "exact"
-SetTitleMatchMode 2
-
 GroupAdd "saveReload", "A_ScriptName"
 
 ;============================== Save Reload / Quick Stop ==============================
@@ -45,28 +35,25 @@ if WinActive("ahk_group saveReload") {
 
 SetCapsLockState "AlwaysOff"
 
-if WinActive("ahk_exe javaw.exe") or WinActive("ahk_exe ApplicationFrameHost.exe") {
+if WinActive("javaw") or WinActive("ApplicationFrameHost") {
     ; Autoclicker for Minecraft Bedrock and Minecraft Java 1.8.9 
     CapsLock & LButton:: {
-        static toggle := 0
-        toggle := !toggle
-        if (toggle) {
-            ; Adjust number in milliseconds
-            SetTimer Click, 1
-        } else {
-            SetTimer Click, 0
-        }
+        autoclick(Click)
     }
     
     ; Shift-Tap
     +CapsLock:: {
+        autoclick(shiftClick)
+    }
+
+    autoclick(clickFunction) {
         static toggle := 0
         toggle := !toggle
         if (toggle) {
             ; Adjust number in milliseconds
-            SetTimer shiftClick, 1
+            SetTimer(clickFunction, 1)
         } else {
-            SetTimer shiftClick, 0
+            SetTimer(clickFunction, 0)
         }
     }
 
