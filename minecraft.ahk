@@ -58,6 +58,7 @@ SetCapsLockState "AlwaysOff"
         static toggle := 0
         toggle := !toggle
         if (toggle) {
+            Send "{Ctrl down}"
             ; Adjust number in milliseconds
             SetTimer(clickFunction, 1)
         } else {
@@ -66,14 +67,12 @@ SetCapsLockState "AlwaysOff"
     }
 
     shiftClick() {
-        Send "{Ctrl down}"
         Click
         Send "{Shift down}"
         Send "{Shift Up}"
     }
 
     rButtonClick() {
-        Send "{Ctrl down}"
         Click
         Send "{RButton}"
     }
