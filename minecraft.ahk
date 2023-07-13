@@ -54,6 +54,11 @@ SetCapsLockState "AlwaysOff"
         autoclick(rButtonClick)
     }
 
+    ; W-Tap
+    CapsLock & w:: {
+        autoclick(wClick)
+    }
+
     autoclick(clickFunction) {
         static toggle := 0
         toggle := !toggle
@@ -75,6 +80,11 @@ SetCapsLockState "AlwaysOff"
     rButtonClick() {
         Click
         Send "{RButton}"
+    }
+    
+    wClick() {
+        Click
+        Send "{w}"
     }
 
 ;============================== ini Section ==============================
