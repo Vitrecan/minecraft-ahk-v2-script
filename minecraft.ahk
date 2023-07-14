@@ -59,6 +59,11 @@ SetCapsLockState "AlwaysOff"
         autoclick(wClick)
     }
 
+    ; S-Tap
+    CapsLock & s:: {
+        autoclick(sClick)
+    }
+
     autoclick(clickFunction) {
         static toggle := 0
         toggle := !toggle
@@ -85,6 +90,11 @@ SetCapsLockState "AlwaysOff"
     wClick() {
         Click
         Send "{w}"
+    }
+    
+    sClick() {
+        Click
+        Send "{s}"
     }
 
 ;============================== ini Section ==============================
